@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div className="container-edit">
           <span className="text-eyebrow text-cinnamon">Contact</span>
           <h1 className="text-display mt-4 max-w-3xl text-5xl text-cocoa sm:text-7xl">
-            Request a quote
+            Request a quote.
           </h1>
           <p className="text-editorial mt-8 max-w-xl text-cocoa/60">
             Tell us your grade, quantity and destination — our team replies
