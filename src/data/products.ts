@@ -42,7 +42,7 @@ export const products: Product[] = [
     shortDescription: "Rough bark, strong flavor, golden brown.",
     description:
       "Identified as a Hamburg grade, H1 is our most popular grade among buyers. Made of rough bark, it delivers a very strong flavor and a golden brown appearance.",
-    image: "/images/products/h1.jpg",
+    image: "/images/products/h1-new.jpg",
     specifications: ["Diameter: 21–23 mm", "Color: Golden brown", "Bark: Rough"],
     featured: true,
   },
@@ -55,7 +55,7 @@ export const products: Product[] = [
     shortDescription: "Thicker bark, robust and spicier flavor.",
     description:
       "A widely used grade in cooking and baking for its warm, spicy flavor. H2 has a thicker bark that is more robust, with a stronger, spicier character than finer grades.",
-    image: "/images/products/h2.jpg",
+    image: "/images/products/h2-new.jpg",
     specifications: ["Bark: Thicker, robust"],
   },
   {
@@ -67,7 +67,7 @@ export const products: Product[] = [
     shortDescription: "Light brown, a top-selling mid-tier grade.",
     description:
       "Processed from the same Cinnamomum verum plant, M4 is a mid-rate grade valued for price and appearance. Quills are prepared using techniques handed down over generations in Sri Lanka. Very similar to the M5 grade.",
-    image: "/images/products/m4.jpg",
+    image: "/images/products/m4-new.jpg",
     specifications: ["Diameter: 18–20 mm", "Color: Light brown"],
     featured: true,
   },
@@ -143,7 +143,7 @@ export const products: Product[] = [
     shortDescription: "Distilled from the glossy evergreen leaves.",
     description:
       "Drawn from the leaves of Cinnamomum verum, native to Sri Lanka. Used as an additive in soaps and a flavoring for seasonings, and valued in aromatherapy — diffused, applied topically, or added to bathwater.",
-    image: "/images/products/leaf-oil.jpg",
+    image: "/images/products/leaf-oil-new.jpg",
   },
   {
     id: "quillings",
@@ -153,7 +153,7 @@ export const products: Product[] = [
     shortDescription: "Larger bark pieces from the quilling process.",
     description:
       "A byproduct of peeling, processing and baling cinnamon quills — mainly larger bark pieces. Our quillings stand on par with the finest produced in Sri Lanka.",
-    image: "/images/products/quillings.jpg",
+    image: "/images/products/quillings-new.jpg",
   },
   {
     id: "powder",
@@ -163,7 +163,7 @@ export const products: Product[] = [
     shortDescription: "Finely ground bark, low-calorie and fiber-rich.",
     description:
       "Ground from the inner bark of the cinnamon tree. A low-calorie spice — around twelve calories in two teaspoons — and an excellent source of manganese, providing over one-third of the recommended daily intake per two-teaspoon serving.",
-    image: "/images/products/powder.jpg",
+    image: "/images/products/powder-new.jpg",
     featured: true,
   },
   {
@@ -174,7 +174,7 @@ export const products: Product[] = [
     shortDescription: "Bark pieces from the peeling and baling process.",
     description:
       "Larger bark pieces resulting from the peeling, processing and baling of quills — a natural byproduct on par with the finest chips produced in Sri Lanka.",
-    image: "/images/products/chips.jpg",
+    image: "/images/products/chips-new.jpg",
   },
   {
     id: "dried-leaves",
@@ -184,7 +184,7 @@ export const products: Product[] = [
     shortDescription: "Naturally dried leaves from the cinnamon tree.",
     description:
       "Dried leaves harvested from the cinnamon tree, prepared using the same careful, natural processing standards applied across our estate.",
-    image: "/images/products/dried-leaves.jpg",
+    image: "/images/products/dried-leaves-new.jpg",
   },
 ];
 
