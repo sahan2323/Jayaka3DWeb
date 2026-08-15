@@ -7,7 +7,7 @@ import { SocialIconLink } from "@/components/ui/social-icons";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Request a quote from Jayaka Ceylon Cinnamon — reach our head office in Nugegoda or our factory in Karandeniya, Sri Lanka.",
+    "Request a quote from Jayaka Ceylon Cinnamon — reach our head office in Nugegoda or our factory in Kurundugaha, Sri Lanka.",
 };
 
 export default function ContactPage() {

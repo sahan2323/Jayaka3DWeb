@@ -14,7 +14,7 @@ export function Footer() {
             <Logo className="h-16 w-[280px] sm:h-[72px] sm:w-[320px]" />
             <p className="mt-5 max-w-sm text-sm text-velvet/55">
               Premium Ceylon cinnamon, cultivated, processed and exported from
-              our own estate in Karandeniya, Sri Lanka.
+              our own estate in Kurundugaha, Sri Lanka.
             </p>
             <div className="mt-7 flex items-center gap-3">
               <SocialIconLink

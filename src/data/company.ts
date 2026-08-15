@@ -27,7 +27,7 @@ export const contact = {
   },
   factory: {
     label: "Factory",
-    lines: ["Borakanda", "Karandeniya"],
+    lines: ["Kurundugaha", "Galle" ],
   },
   hours: [
     { days: "Monday – Friday", time: "9:00 AM – 6:00 PM" },

@@ -36,36 +36,19 @@ export default function CeylonCinnamonPage() {
     <h1 className="text-display mt-4 max-w-3xl text-5xl text-cocoa [text-shadow:0_2px_28px_rgba(248,246,242,0.9),0_1px_3px_rgba(248,246,242,0.7)] sm:text-7xl">
       The true cinnamon of Sri Lanka.
     </h1>
-    <p className="text-editorial mt-8 max-w-xl text-cocoa/70 [text-shadow:0_1px_16px_rgba(248,246,242,0.85)]">
-      Ceylon cinnamon — Cinnamomum zeylanicum — is indigenous to Sri Lanka
-      and handcrafted into multi-layered quills, distinct from the cassia
-      sold in most of the world.
-    </p>
+    <p className="text-editorial mt-8 max-w-2xl text-cocoa/60">
+  Indigenous to Sri Lanka, true Ceylon cinnamon (Cinnamomum verum) carries
+  a legacy spanning thousands of years, once traded alongside gold and
+  sought after by historic empires. Sri Lanka now produces over 90% of
+  the world's true cinnamon, relying on generations of artisanal peeling
+  and hand-rolling techniques on native estates. Today, this heritage
+  fuels a modern global industry—exporting refined quills, custom cuts,
+  and pure essential oils to top international retail and pharmaceutical
+  markets worldwide.
+</p>
   </div>
 </header>
 
-      <section className="bg-white py-20 sm:py-28">
-        <div className="container-edit grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <span className="text-eyebrow text-cinnamon">Appearance &amp; Structure</span>
-            <p className="mt-4 text-lg leading-relaxed text-cocoa/70">
-              Ceylon cinnamon sticks are light to golden brown, soft, and easy to
-              break. Each quill is handcrafted from multiple thin, papery layers
-              of inner bark rolled inside one another — a technique passed down
-              through generations of Sri Lankan cinnamon peelers.
-            </p>
-          </div>
-          <div>
-            <span className="text-eyebrow text-cinnamon">Processing</span>
-            <p className="mt-4 text-lg leading-relaxed text-cocoa/70">
-              Bark is peeled by hand, the outer layer removed, and the inner
-              strip rubbed and rolled into quills. Byproducts of this process —
-              quillings and chips — are graded and sold alongside the finished
-              sticks, powder and oils.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-velvet py-20 sm:py-28">
         <div className="container-edit">

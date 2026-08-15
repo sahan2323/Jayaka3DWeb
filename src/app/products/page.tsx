@@ -34,7 +34,7 @@ export default function ProductsPage() {
       A premium catalogue of Ceylon cinnamon.
     </h1>
     <p className="text-editorial mt-8 max-w-xl text-cocoa/70 [text-shadow:0_1px_16px_rgba(248,246,242,0.85)]">
-      Graded, cut and packed on our own estate in Karandeniya — from
+      Graded, cut and packed on our own estate in Kurundugaha — from
       the finest Alba sticks to bark oil and powder.
     </p>
   </div>

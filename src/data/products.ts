@@ -24,7 +24,7 @@ export interface Product {
 }
 
 export const categoryLabels: Record<ProductCategory, string> = {
-  sticks: "Sticks / Bales",
+  sticks: "Sticks",
   oils: "Oils",
   powder: "Powder",
   quillings: "Quillings",
@@ -37,7 +37,7 @@ export const products: Product[] = [
     id: "h1",
     name: "Cinnamon H1",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Hamburg Grade",
     shortDescription: "Rough bark, strong flavor, golden brown.",
     description:
@@ -50,7 +50,7 @@ export const products: Product[] = [
     id: "h2",
     name: "Cinnamon H2",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Hamburg Grade",
     shortDescription: "Thicker bark, robust and spicier flavor.",
     description:
@@ -62,7 +62,7 @@ export const products: Product[] = [
     id: "m4",
     name: "Cinnamon M4",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Mexican Grade",
     shortDescription: "Light brown, a top-selling mid-tier grade.",
     description:
@@ -75,7 +75,7 @@ export const products: Product[] = [
     id: "c4",
     name: "Cinnamon C4",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Continental Grade",
     shortDescription: "Economical grade, yellow to light brown.",
     description:
@@ -90,7 +90,7 @@ export const products: Product[] = [
     id: "c5",
     name: "Cinnamon C5",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Continental Grade",
     shortDescription: "Fine Continental grade, close to Alba.",
     description:
@@ -102,7 +102,7 @@ export const products: Product[] = [
     id: "c5-special",
     name: "Cinnamon C5 Special",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Continental Grade",
     shortDescription: "One of our finest grades, close to Alba.",
     description:
@@ -115,7 +115,7 @@ export const products: Product[] = [
     id: "alba",
     name: "Cinnamon Alba",
     category: "sticks",
-    categoryLabel: "Sticks / Bales",
+    categoryLabel: "Sticks",
     grade: "Finest Grade",
     shortDescription: "The thinnest, finest and most prized grade.",
     description:
