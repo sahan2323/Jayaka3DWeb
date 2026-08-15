@@ -67,6 +67,8 @@ export function ProductCatalogue() {
                 <div className="relative h-52 w-full overflow-hidden">
                   <ProductVisual
                     category={product.category}
+                    image={product.image}
+                    alt={product.name}
                     className="h-full w-full transition-transform duration-700 group-hover:scale-105"
                   />
                   <span className="text-eyebrow absolute left-4 top-4 rounded-full bg-white/85 px-3 py-1.5 text-cocoa backdrop-blur">

@@ -1,11 +1,7 @@
 import type { ProductCategory } from "@/data/products";
+import Image from "next/image";
 
-// Until real product photography is supplied, each category renders a
-// distinct, tasteful gradient study rather than a stock photo or an
-// invented image. Swap <ProductVisual> for a plain <Image src={product.image}
-// .../> the moment photography lands — the calling components (RangeCard,
-// ProductCatalogue) never need to change.
-
+// Fallback gradients for products without images
 const categoryTreatment: Record<ProductCategory, string> = {
   sticks: "linear-gradient(155deg, #e9b989 0%, #d9922f 45%, #8a531f 100%)",
   oils: "linear-gradient(155deg, #f3d9b6 0%, #d97724 55%, #5a3820 100%)",
@@ -17,11 +13,29 @@ const categoryTreatment: Record<ProductCategory, string> = {
 
 export function ProductVisual({
   category,
+  image,
+  alt,
   className,
 }: {
   category: ProductCategory;
+  image?: string;
+  alt?: string;
   className?: string;
 }) {
+  if (image) {
+    return (
+      <div className={className}>
+        <Image
+          src={image}
+          alt={alt || ""}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={className}
@@ -38,3 +52,4 @@ export function ProductVisual({
     </div>
   );
 }
+

@@ -11,6 +11,7 @@ interface RangeItem extends CardStackItem {
   category: ProductCategory;
   tag: string;
   grade?: string;
+  image?: string;
 }
 
 const rangeItems: RangeItem[] = featuredProducts.map((p) => ({
@@ -20,6 +21,7 @@ const rangeItems: RangeItem[] = featuredProducts.map((p) => ({
   category: p.category,
   tag: p.categoryLabel,
   grade: p.grade,
+  image: p.image,
 }));
 
 interface StackConfig {
@@ -102,20 +104,20 @@ export function RangeCardStack() {
   return (
     <section className="overflow-x-clip bg-velvet py-24 sm:py-32">
       <div className="container-edit text-center">
-  <span className="text-eyebrow text-cinnamon">The Range</span>
-  <h2 className="text-display mt-4 text-4xl text-cocoa sm:text-6xl">
-    A Catalogue of Ceylon Cinnamon
-  </h2>
-  <p className="text-editorial mx-auto mt-5 max-w-xl text-base text-cocoa/70 sm:text-lg">
-    Hand-rolled in our cultivated lands—refined for the world. Explore our
-    full range of premium cinnamon quills, cuts, and extracts.
-  </p>
-  <p className="text-editorial mx-auto mt-3 max-w-xl text-sm text-cocoa/60 sm:text-base">
-    From Alba, the finest grade grown, to bark oil distilled on our own
-    estate — every product is graded, cut and packed to export. Tap or
-    drag to explore.
-  </p>
-</div>
+        <span className="text-eyebrow text-cinnamon">The Range</span>
+        <h2 className="text-display mt-4 text-4xl text-cocoa sm:text-6xl">
+          A Catalogue of Ceylon Cinnamon
+        </h2>
+        <p className="text-editorial mx-auto mt-5 max-w-xl text-base text-cocoa/70 sm:text-lg">
+          Hand-rolled in our cultivated lands—refined for the world. Explore our
+          full range of premium cinnamon quills, cuts, and extracts.
+        </p>
+        <p className="text-editorial mx-auto mt-3 max-w-xl text-sm text-cocoa/60 sm:text-base">
+          From Alba, the finest grade grown, to bark oil distilled on our own
+          estate — every product is graded, cut and packed to export. Tap or
+          drag to explore.
+        </p>
+      </div>
 
       <div ref={ref} className="container-edit mt-14 sm:mt-16">
         <CardStack
@@ -155,7 +157,7 @@ export function RangeCardStack() {
 function RangeCard({ item, active }: { item: RangeItem; active: boolean }) {
   return (
     <div className="relative h-full w-full">
-      <ProductVisual category={item.category} className="absolute inset-0 h-full w-full" />
+      <ProductVisual category={item.category} image={item.image} alt={item.title} className="absolute inset-0 h-full w-full" />
 
       <span className="text-eyebrow absolute left-5 top-5 rounded-full bg-white/85 px-3 py-1.5 text-cocoa backdrop-blur">
         {item.tag}
