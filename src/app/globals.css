@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  /* Core brand palette */
+  --color-radiant-cinnamon: #d97724;
+  --color-frosted-white: #ffffff;
+  --color-light-velvet: #f8f6f2;
+  --color-spice-blur: #e5a86b;
+
+  /* Supporting palette */
+  --color-cinnamon-brown: #5a3820;
+  --color-dark-cocoa: #2b1a10;
+  --color-warm-charcoal: #23201c;
+  --color-line: rgba(43, 26, 16, 0.12);
+
+  --background: var(--color-light-velvet);
+  --foreground: var(--color-dark-cocoa);
+
+  --font-display: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --nav-height: 88px;
+}
+
+@theme inline {
+  --color-cinnamon: var(--color-radiant-cinnamon);
+  --color-white: var(--color-frosted-white);
+  --color-velvet: var(--color-light-velvet);
+  --color-blur: var(--color-spice-blur);
+  --color-brown: var(--color-cinnamon-brown);
+  --color-cocoa: var(--color-dark-cocoa);
+  --color-charcoal: var(--color-warm-charcoal);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-display);
+
+  --animate-marquee: marquee 28s linear infinite;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: auto;
+  background: var(--background);
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-radiant-cinnamon);
+  color: var(--color-frosted-white);
+}
+
+/* Editorial type scale helpers */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+}
+
+.text-editorial {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.text-eyebrow-lg {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 640px) {
+  .text-eyebrow-lg {
+    font-size: 0.875rem;
+  }
+}
+
+.container-edit {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 5rem);
+}
+
+/* Focus states — visible everywhere, styled to the brand */
+:focus-visible {
+  outline: 2px solid var(--color-radiant-cinnamon);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion: collapse to simple, static/fade states everywhere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html[data-reduced-motion="true"] .parallax-el {
+  transform: none !important;
+}
