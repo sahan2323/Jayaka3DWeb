@@ -60,7 +60,7 @@ export function Navbar() {
             <Logo
               priority
               className={cn(
-                "h-14 w-[235px] transition-[filter] duration-500 sm:h-16 sm:w-[260px]",
+                "h-16 w-[260px] transition-[filter] duration-500 sm:h-[72px] sm:w-[290px]",
                 !scrolled && "drop-shadow-[0_1px_10px_rgba(248,246,242,0.85)]"
               )}
             />
