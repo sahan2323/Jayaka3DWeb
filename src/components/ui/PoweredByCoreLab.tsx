@@ -8,7 +8,7 @@ export function PoweredByCoreLab({ className }: PoweredByCoreLabProps) {
      <a   href = "https://www.onecorelab.com"
       target = "_blank"
     rel = "noopener noreferrer"
-    className={`inline-flex items-center gap-1 text-xs font-medium tracking-wide text-velvet/40 transition-colors hover:text-velvet/70 ${className ?? ""}`
+    className={`inline-flex w-full items-center justify-center gap-1 text-xs font-medium tracking-wide text-velvet/40 transition-colors hover:text-velvet/70 ${className ?? ""}`
 }
     >
       <span>Powered by</span>
