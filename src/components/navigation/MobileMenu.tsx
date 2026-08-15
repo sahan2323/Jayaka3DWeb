@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { navLinks } from "./nav-links";
 import { cn } from "@/lib/utils";
+import { PoweredByCoreLab } from "@/components/ui/PoweredByCoreLab";
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
 const EASE_IN = [0.7, 0, 0.84, 0] as const;
@@ -99,9 +100,7 @@ export function MobileMenu({
             >
               Request a Quote
             </Link>
-            <p className="text-eyebrow text-velvet/40">
-              info@jayakacinnamon.lk &nbsp;·&nbsp; +94 77 793 1504
-            </p>
+            <PoweredByCoreLab />
           </motion.div>
         </motion.div>
       )}

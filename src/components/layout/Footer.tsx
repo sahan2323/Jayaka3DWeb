@@ -3,6 +3,7 @@ import { contact } from "@/data/company";
 import { navLinks } from "@/components/navigation/nav-links";
 import { Logo } from "@/components/ui/Logo";
 import { SocialIconLink } from "@/components/ui/social-icons";
+import { PoweredByCoreLab } from "@/components/ui/PoweredByCoreLab";
 
 export function Footer() {
   return (
@@ -72,7 +73,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-velvet/10 pt-8 text-xs text-velvet/40 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} Jayaka Ceylon Cinnamon (Pvt) Ltd. All rights reserved.</span>
-          <span>Kurundugaha, Sri Lanka</span>
+          <PoweredByCoreLab />
         </div>
       </div>
     </footer>
