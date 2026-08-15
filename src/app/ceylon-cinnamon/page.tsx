@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { products } from "@/data/products";
 import { CeylonComparison } from "@/components/cinnamon/CeylonComparison";
 import { QuoteCTA } from "@/components/story/QuoteCTA";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Ceylon Cinnamon",
@@ -14,19 +15,34 @@ const stickGrades = products.filter((p) => p.category === "sticks");
 export default function CeylonCinnamonPage() {
   return (
     <>
-      <header className="pt-40 pb-20 sm:pt-52 sm:pb-28">
-        <div className="container-edit">
-          <span className="text-eyebrow text-cinnamon">Ceylon Cinnamon</span>
-          <h1 className="text-display mt-4 max-w-3xl text-5xl text-cocoa sm:text-7xl">
-            The true cinnamon of Sri Lanka.
-          </h1>
-          <p className="text-editorial mt-8 max-w-xl text-cocoa/60">
-            Ceylon cinnamon — Cinnamomum zeylanicum — is indigenous to Sri Lanka
-            and handcrafted into multi-layered quills, distinct from the cassia
-            sold in most of the world.
-          </p>
-        </div>
-      </header>
+      <header className="relative overflow-hidden pt-40 pb-20 sm:pt-52 sm:pb-28">
+  <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
+    <div className="absolute inset-0 rounded-full bg-cinnamon/15 blur-3xl" />
+    <Image
+      src="/images/page-heroes/ceylon-cinnamon.png"
+      alt=""
+      fill
+      priority
+      sizes="100vw"
+      className="object-contain object-[80%_center] opacity-90"
+    />
+    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-velvet" />
+  </div>
+
+  <div className="container-edit relative z-10">
+    <span className="text-eyebrow text-cinnamon drop-shadow-[0_1px_12px_rgba(248,246,242,0.9)]">
+      Ceylon Cinnamon
+    </span>
+    <h1 className="text-display mt-4 max-w-3xl text-5xl text-cocoa [text-shadow:0_2px_28px_rgba(248,246,242,0.9),0_1px_3px_rgba(248,246,242,0.7)] sm:text-7xl">
+      The true cinnamon of Sri Lanka.
+    </h1>
+    <p className="text-editorial mt-8 max-w-xl text-cocoa/70 [text-shadow:0_1px_16px_rgba(248,246,242,0.85)]">
+      Ceylon cinnamon — Cinnamomum zeylanicum — is indigenous to Sri Lanka
+      and handcrafted into multi-layered quills, distinct from the cassia
+      sold in most of the world.
+    </p>
+  </div>
+</header>
 
       <section className="bg-white py-20 sm:py-28">
         <div className="container-edit grid gap-12 lg:grid-cols-2 lg:gap-20">
