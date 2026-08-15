@@ -3,6 +3,7 @@ import { company } from "@/data/company";
 import { StoryTimeline } from "@/components/story/StoryTimeline";
 import { QuoteCTA } from "@/components/story/QuoteCTA";
 import Image from "next/image";
+import { Eye, Compass } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -58,17 +59,28 @@ export default function OurStoryPage() {
       </section>
 
       <section className="bg-velvet py-20 sm:py-28">
-        <div className="container-edit grid gap-10 sm:grid-cols-2">
-          <div className="rounded-3xl border border-cocoa/10 bg-white p-10">
-            <span className="text-eyebrow text-cinnamon">Vision</span>
-            <p className="text-editorial mt-4 text-xl text-cocoa">{company.vision}</p>
-          </div>
-          <div className="rounded-3xl border border-cocoa/10 bg-white p-10">
-            <span className="text-eyebrow text-cinnamon">Mission</span>
-            <p className="text-editorial mt-4 text-xl text-cocoa">{company.mission}</p>
-          </div>
-        </div>
-      </section>
+  <div className="container-edit grid gap-8 lg:grid-cols-2">
+    <div className="flex flex-col rounded-3xl bg-cocoa p-8 shadow-xl shadow-cocoa/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cocoa/25 sm:p-10">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-cinnamon/15 text-cinnamon">
+        <Eye size={22} />
+      </span>
+      <span className="text-eyebrow mt-6 text-cinnamon">Vision</span>
+      <p className="text-editorial mt-4 text-base leading-relaxed text-velvet/85 sm:text-lg">
+        {company.vision}
+      </p>
+    </div>
+
+    <div className="flex flex-col rounded-3xl border border-cocoa/10 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cocoa/10 sm:p-10">
+      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-cinnamon/10 text-cinnamon">
+        <Compass size={22} />
+      </span>
+      <span className="text-eyebrow mt-6 text-cinnamon">Mission</span>
+      <p className="text-editorial mt-4 text-base leading-relaxed text-cocoa/70 sm:text-lg">
+        {company.mission}
+      </p>
+    </div>
+  </div>
+</section>
 
       <StoryTimeline />
       <QuoteCTA />
