@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { journeyStages } from "@/data/company";
 
@@ -15,13 +16,23 @@ import { journeyStages } from "@/data/company";
  */
 export function CinnamonJourneyMobile() {
   return (
-    <section className="bg-velvet px-5 py-20">
-      <div className="text-center">
+    <section className="relative overflow-hidden bg-velvet px-5 py-20">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <Image
+          src="/images/backgrounds/srilanka.png"
+          alt=""
+          fill
+          className="object-contain opacity-[0.75]"
+        />
+        <div className="absolute inset-0 bg-velvet/60" />
+      </div>
+
+      <div className="relative z-10 text-center">
         <span className="text-eyebrow text-cinnamon">The Cinnamon Journey</span>
         <h2 className="text-display mt-3 text-4xl text-cocoa">Sri Lanka to the World</h2>
       </div>
 
-      <ul className="mt-14 flex flex-col">
+      <ul className="relative z-10 mt-14 flex flex-col">
         {journeyStages.map((stage, i) => (
           <motion.li
             key={stage.id}

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { journeyStages } from "@/data/company";
@@ -66,9 +67,24 @@ export function CinnamonJourneyDesktop() {
       style={{ height: `${HEIGHT + 480}px` }}
     >
       <div className="sticky top-0 flex h-svh flex-col items-center overflow-hidden py-12 sm:py-14">
+        {/* Sri Lanka backdrop — sits inside the pinned viewport (not the
+            outer tall section) so it stays put for the whole scroll
+            sequence instead of scrolling past. Low opacity + grayscale +
+            a velvet wash keep it a quiet backdrop, not a competing
+            visual. */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <Image
+            src="/images/backgrounds/srilanka.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.75]"
+          />
+          <div className="absolute inset-0 bg-velvet/60" />
+        </div>
+
         {/* Header lives in normal flow, above the path — it can never
             overlap the visual, on any screen size. */}
-        <div className="container-edit shrink-0 text-center">
+        <div className="container-edit relative z-10 shrink-0 text-center">
           <span className="text-eyebrow text-cinnamon">The Cinnamon Journey</span>
           <h2 className="text-display mt-2 text-4xl text-cocoa sm:text-5xl">
             Sri Lanka to the World
@@ -79,7 +95,7 @@ export function CinnamonJourneyDesktop() {
             overlapping the header above it. */}
         <div
           ref={boxRef}
-          className="relative mt-4 w-full max-w-md flex-1 sm:mt-6 sm:max-w-lg"
+          className="relative z-10 mt-4 w-full max-w-md flex-1 sm:mt-6 sm:max-w-lg"
         >
           {box.width > 0 && (
             <>
