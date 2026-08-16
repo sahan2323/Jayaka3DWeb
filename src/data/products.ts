@@ -120,7 +120,7 @@ export const products: Product[] = [
     shortDescription: "The thinnest, finest and most prized grade.",
     description:
       "The thinnest and finest grade in the cinnamon stick group, and the most expensive. Alba's fine diameter — close to a pencil — gives a good taste and a fresh, exotic aroma unmatched by coarser grades.",
-    image: "/images/products/alba.jpg",
+    image: "/images/products/alba-new.jpg",
     specifications: ["Diameter: 8–10 mm"],
     featured: true,
   },
