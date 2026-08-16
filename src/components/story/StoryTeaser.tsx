@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { company } from "@/data/company";
 
@@ -21,20 +22,13 @@ export function StoryTeaser() {
           </Link>
         </div>
 
-        <div
-          className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem]"
-          style={{
-            background:
-              "linear-gradient(155deg, #f3d9b6 0%, #e5a86b 45%, #b3671f 80%, #5a3820 100%)",
-          }}
-          aria-hidden="true"
-        >
-          <div
-            className="absolute inset-0 opacity-25 mix-blend-multiply"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(115deg, transparent 0 26px, rgba(43,26,16,0.25) 26px 28px)",
-            }}
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem]">
+          <Image
+            src="/images/story-teaser.jpg"
+            alt="Our Story"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
       </div>
