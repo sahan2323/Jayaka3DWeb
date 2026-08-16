@@ -59,14 +59,6 @@ export function CinnamonJourneyDesktop() {
   const toScreenX = (x: number) => offsetX + x * scale;
   const toScreenY = (y: number) => offsetY + y * scale;
 
-  // On shorter viewports (typical laptop screens), the available height
-  // per stage can get tight enough that a normal-size label would spill
-  // into its neighbor. Rather than let that happen, labels switch to a
-  // smaller, tighter treatment once there's under ~90px of vertical room
-  // per stage — measured from the real box, not guessed.
-  const gapPx = box.height ? (box.height * PADDING) / (journeyStages.length - 1) : 0;
-  const compact = gapPx > 0 && gapPx < 90;
-
   return (
     <section
       ref={sectionRef}
@@ -138,7 +130,6 @@ export function CinnamonJourneyDesktop() {
                   onLeft={p.x < WIDTH / 2}
                   progressStart={i / (points.length - 1) - 0.03}
                   scrollYProgress={scrollYProgress}
-                  compact={compact}
                 />
               ))}
             </>
@@ -182,7 +173,6 @@ function JourneyLabel({
   onLeft,
   progressStart,
   scrollYProgress,
-  compact,
 }: {
   stage: (typeof journeyStages)[number];
   x: number;
@@ -190,7 +180,6 @@ function JourneyLabel({
   onLeft: boolean;
   progressStart: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  compact: boolean;
 }) {
   const start = Math.min(1, Math.max(0, progressStart));
   const end = Math.min(1, start + 0.07);
@@ -206,18 +195,10 @@ function JourneyLabel({
         transform: onLeft ? "translate(calc(-100% - 14px), -50%)" : "translate(14px, -50%)",
         opacity,
       }}
-      className={`flex flex-col ${align} ${compact ? "w-24" : "w-32 lg:w-48"}`}
+      className={`flex w-36 flex-col ${align} sm:w-40 lg:w-48`}
     >
-      <span className={compact ? "text-eyebrow text-cinnamon" : "text-eyebrow-lg text-cinnamon"}>
-        {stage.label}
-      </span>
-      <span
-        className={
-          compact
-            ? "mt-1 line-clamp-2 text-xs leading-snug text-cocoa/70"
-            : "mt-1.5 line-clamp-2 text-sm leading-relaxed text-cocoa/70 lg:text-base"
-        }
-      >
+      <span className="text-eyebrow-lg text-cinnamon">{stage.label}</span>
+      <span className="mt-1.5 text-sm leading-snug text-cocoa/70 lg:text-base">
         {stage.description}
       </span>
     </motion.div>
