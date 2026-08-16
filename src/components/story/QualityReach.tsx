@@ -1,4 +1,5 @@
 import { Leaf, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import { ContainerScroll, CardSticky } from "@/components/ui/sticky-card-stack";
 
 interface Pillar {
@@ -6,6 +7,7 @@ interface Pillar {
   title: string;
   copy: string;
   gradient: string;
+  image?: string;
 }
 
 const pillars: Pillar[] = [
@@ -14,24 +16,28 @@ const pillars: Pillar[] = [
     title: "Cultivation",
     copy: "We plant and grade the finest cinnamon on our own estate, preserving Ceylon cinnamon's unique quality.",
     gradient: "linear-gradient(155deg, #f3d9b6 0%, #e5a86b 45%, #b3671f 85%, #5a3820 100%)",
+    image: "/images/cultivation.jpg",
   },
   {
     id: "processing",
     title: "Processing",
     copy: "The outer bark is removed and rolled into quills by our village workforce — a way of giving back to the community.",
     gradient: "linear-gradient(155deg, #eccba0 0%, #d9922f 50%, #8a531f 85%, #43290f 100%)",
+    image: "/images/processing.jpg",
   },
   {
     id: "distribution",
     title: "Distribution",
     copy: "An extensive domestic network delivers our products to customers reliably and cost-effectively.",
     gradient: "linear-gradient(155deg, #e9b989 0%, #c76a29 50%, #6b3f1c 85%, #2b1a10 100%)",
+    image: "/images/distribution.jpg",
   },
   {
     id: "exporting",
     title: "Exporting",
     copy: "We ship to any country worldwide, navigating international regulations to deliver on time, every time.",
     gradient: "linear-gradient(155deg, #e5c39a 0%, #b3671f 50%, #5a3820 85%, #2b1a10 100%)",
+    image: "/images/exporting.jpg",
   },
 ];
 
@@ -66,17 +72,27 @@ export function QualityReach() {
           >
             <div
               className="relative h-48 w-full shrink-0 sm:h-auto sm:w-2/5"
-              style={{ background: pillar.gradient }}
+              style={pillar.image ? {} : { background: pillar.gradient }}
               aria-hidden="true"
             >
-              <div
-                className="absolute inset-0 opacity-30 mix-blend-multiply"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(115deg, transparent 0 24px, rgba(43,26,16,0.28) 24px 26px)",
-                }}
-              />
-              <span className="text-eyebrow-lg absolute left-6 top-6 text-white/90">
+              {pillar.image ? (
+                <Image
+                  src={pillar.image}
+                  alt={pillar.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, 40vw"
+                />
+              ) : (
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-multiply"
+                  style={{
+                    backgroundImage:
+                      "repeating-linear-gradient(115deg, transparent 0 24px, rgba(43,26,16,0.28) 24px 26px)",
+                  }}
+                />
+              )}
+              <span className="text-eyebrow-lg absolute left-6 top-6 text-white/90 drop-shadow-md">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
