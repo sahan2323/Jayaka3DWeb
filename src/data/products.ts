@@ -67,7 +67,7 @@ export const products: Product[] = [
     shortDescription: "Light brown, a top-selling mid-tier grade.",
     description:
       "Processed from the same Cinnamomum verum plant, M4 is a mid-rate grade valued for price and appearance. Quills are prepared using techniques handed down over generations in Sri Lanka. Very similar to the M5 grade.",
-    image: "/images/products/m4-new.jpg",
+    image: "/images/products/m4-v2.jpg",
     specifications: ["Diameter: 18–20 mm", "Color: Light brown"],
     featured: true,
   },
