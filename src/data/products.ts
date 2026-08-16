@@ -95,7 +95,7 @@ export const products: Product[] = [
     shortDescription: "Fine Continental grade, close to Alba.",
     description:
       "Second only to Alba in thickness and price, C5 is grown on our own estate and processed on our own premises — a refined alternative to the Alba stick.",
-    image: "/images/products/c5.jpg",
+    image: "/images/products/c5-new.jpg",
     specifications: ["Diameter: 7–9 mm"],
   },
   {
@@ -107,7 +107,7 @@ export const products: Product[] = [
     shortDescription: "One of our finest grades, close to Alba.",
     description:
       "The C5 Special grade is one of the best cinnamon grades we offer — second to Alba in thickness and price, sourced from our own estate and processed on our own premises.",
-    image: "/images/products/c5-special.jpg",
+    image: "/images/products/c5-new.jpg",
     specifications: ["Diameter: 7–9 mm"],
     featured: true,
   },
