@@ -80,7 +80,7 @@ export const products: Product[] = [
     shortDescription: "Economical grade, yellow to light brown.",
     description:
       "From the same evergreen species, Cinnamomum verum, C4 is a Continental cinnamon grade — yellow to light brown in appearance and one of the more economical grades among our stick offerings.",
-    image: "/images/products/c4.jpg",
+    image: "/images/products/c4-new.jpg",
     specifications: [
       "Diameter: 13–14 mm",
       "Cut lengths: 5\", 10\", 21\"",
