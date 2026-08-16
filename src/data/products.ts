@@ -132,7 +132,7 @@ export const products: Product[] = [
     shortDescription: "Rare, potent oil distilled from the bark.",
     description:
       "Distilled from the bark of Cinnamomum zeylanicum. Rare, with a delicate aroma and a sweet, pungent taste — our bark oil contains more than 60% cinnamaldehyde, and is well suited to aromatherapy and food flavoring.",
-    image: "/images/products/bark-oil.jpg",
+    image: "/images/products/bark-oil-new.jpg",
     specifications: ["Cinnamaldehyde content: 60%+"],
   },
   {
