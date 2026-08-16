@@ -59,18 +59,26 @@ export function CinnamonJourneyDesktop() {
   const toScreenX = (x: number) => offsetX + x * scale;
   const toScreenY = (y: number) => offsetY + y * scale;
 
+  // On shorter viewports (typical laptop screens), the available height
+  // per stage can get tight enough that a normal-size label would spill
+  // into its neighbor. Rather than let that happen, labels switch to a
+  // smaller, tighter treatment once there's under ~90px of vertical room
+  // per stage — measured from the real box, not guessed.
+  const gapPx = box.height ? (box.height * PADDING) / (journeyStages.length - 1) : 0;
+  const compact = gapPx > 0 && gapPx < 90;
+
   return (
     <section
       ref={sectionRef}
       className="relative bg-velvet"
       style={{ height: `${HEIGHT + 480}px` }}
     >
-      <div className="sticky top-0 flex h-svh flex-col items-center overflow-hidden py-16 sm:py-20">
+      <div className="sticky top-0 flex h-svh flex-col items-center overflow-hidden py-12 sm:py-14">
         {/* Header lives in normal flow, above the path — it can never
             overlap the visual, on any screen size. */}
         <div className="container-edit shrink-0 text-center">
           <span className="text-eyebrow text-cinnamon">The Cinnamon Journey</span>
-          <h2 className="text-display mt-3 text-4xl text-cocoa sm:text-6xl">
+          <h2 className="text-display mt-2 text-4xl text-cocoa sm:text-5xl">
             Sri Lanka to the World
           </h2>
         </div>
@@ -79,7 +87,7 @@ export function CinnamonJourneyDesktop() {
             overlapping the header above it. */}
         <div
           ref={boxRef}
-          className="relative mt-6 w-full max-w-md flex-1 sm:mt-10 sm:max-w-lg"
+          className="relative mt-4 w-full max-w-md flex-1 sm:mt-6 sm:max-w-lg"
         >
           {box.width > 0 && (
             <>
@@ -130,6 +138,7 @@ export function CinnamonJourneyDesktop() {
                   onLeft={p.x < WIDTH / 2}
                   progressStart={i / (points.length - 1) - 0.03}
                   scrollYProgress={scrollYProgress}
+                  compact={compact}
                 />
               ))}
             </>
@@ -173,6 +182,7 @@ function JourneyLabel({
   onLeft,
   progressStart,
   scrollYProgress,
+  compact,
 }: {
   stage: (typeof journeyStages)[number];
   x: number;
@@ -180,6 +190,7 @@ function JourneyLabel({
   onLeft: boolean;
   progressStart: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  compact: boolean;
 }) {
   const start = Math.min(1, Math.max(0, progressStart));
   const end = Math.min(1, start + 0.07);
@@ -195,10 +206,18 @@ function JourneyLabel({
         transform: onLeft ? "translate(calc(-100% - 14px), -50%)" : "translate(14px, -50%)",
         opacity,
       }}
-      className={`flex w-32 flex-col ${align} lg:w-48`}
+      className={`flex flex-col ${align} ${compact ? "w-24" : "w-32 lg:w-48"}`}
     >
-      <span className="text-eyebrow-lg text-cinnamon">{stage.label}</span>
-      <span className="mt-1.5 text-sm leading-relaxed text-cocoa/70 lg:text-base">
+      <span className={compact ? "text-eyebrow text-cinnamon" : "text-eyebrow-lg text-cinnamon"}>
+        {stage.label}
+      </span>
+      <span
+        className={
+          compact
+            ? "mt-1 line-clamp-2 text-xs leading-snug text-cocoa/70"
+            : "mt-1.5 line-clamp-2 text-sm leading-relaxed text-cocoa/70 lg:text-base"
+        }
+      >
         {stage.description}
       </span>
     </motion.div>
