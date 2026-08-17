@@ -29,6 +29,68 @@ interface CinnamonScrollHeroProps {
   frames?: string[];
 }
 
+/**
+ * Splits a line into per-character spans (for the scroll-driven
+ * convergence animation) grouped word-by-word. Each word's letters sit
+ * inside their own `white-space: nowrap` cluster, so a browser can
+ * never insert a line break between two letters — or between a word
+ * and trailing punctuation — while the actual spaces between words
+ * remain normal, breakable points. Character indices stay sequential
+ * across the whole line (spaces included), so `settleLine`'s distance-
+ * from-center math is unaffected by this grouping.
+ */
+function renderAnimatedLine(
+  text: string,
+  refs: React.MutableRefObject<Array<HTMLSpanElement | null>>
+) {
+  const words = text.split(" ");
+  let index = 0;
+  const nodes: React.ReactNode[] = [];
+
+  words.forEach((word, wordIdx) => {
+    nodes.push(
+      <span
+        key={`word-${wordIdx}`}
+        style={{ whiteSpace: "nowrap", display: "inline-block", transformStyle: "preserve-3d" }}
+      >
+        {word.split("").map((char) => {
+          const i = index++;
+          return (
+            <span
+              key={i}
+              ref={(el) => {
+                refs.current[i] = el;
+              }}
+              className="inline-block will-change-transform"
+              style={{ whiteSpace: "pre" }}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+
+    if (wordIdx < words.length - 1) {
+      const i = index++;
+      nodes.push(
+        <span
+          key={`space-${i}`}
+          ref={(el) => {
+            refs.current[i] = el;
+          }}
+          className="inline-block will-change-transform"
+          style={{ whiteSpace: "pre" }}
+        >
+          {" "}
+        </span>
+      );
+    }
+  });
+
+  return nodes;
+}
+
 export function CinnamonScrollHero({ videoSrc, frames }: CinnamonScrollHeroProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -230,40 +292,15 @@ export function CinnamonScrollHero({ videoSrc, frames }: CinnamonScrollHeroProps
                 style={{ perspective: "600px" }}
               >
                 <span className="block" style={{ transformStyle: "preserve-3d" }}>
-                  {OUTRO_LINE_1.split("").map((char, i) => (
-                    <span
-                      key={i}
-                      ref={(el) => {
-                        line1CharRefs.current[i] = el;
-                      }}
-                      className="inline-block will-change-transform"
-                      style={{ whiteSpace: "pre" }}
-                    >
-                      {char}
-                    </span>
-                  ))}
+                  {renderAnimatedLine(OUTRO_LINE_1, line1CharRefs)}
                 </span>
-                <span
-                  className="block text-cinnamon"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {OUTRO_LINE_2.split("").map((char, i) => (
-                    <span
-                      key={i}
-                      ref={(el) => {
-                        line2CharRefs.current[i] = el;
-                      }}
-                      className="inline-block will-change-transform"
-                      style={{ whiteSpace: "pre" }}
-                    >
-                      {char}
-                    </span>
-                  ))}
+                <span className="block text-cinnamon" style={{ transformStyle: "preserve-3d" }}>
+                  {renderAnimatedLine(OUTRO_LINE_2, line2CharRefs)}
                 </span>
               </h2>
               <p className="text-editorial mt-5 max-w-md text-sm text-cocoa/80 [text-shadow:0_1px_16px_rgba(248,246,242,0.85)] sm:mt-6 sm:text-lg">
-                One stick, rolled by hand in Kurundugaha — refined into a full
-                range of grades, cuts and extracts for the world.
+                Hand-rolled in our cultivated lands—refined for the world. Explore our
+                full range of premium cinnamon quills, cuts, and extracts.
               </p>
             </div>
           )}
@@ -289,8 +326,8 @@ export function CinnamonScrollHero({ videoSrc, frames }: CinnamonScrollHeroProps
             <span className="text-cinnamon">CRAFTED FOR THE WORLD.</span>
           </h2>
           <p className="text-editorial mx-auto mt-5 max-w-md text-cocoa/70">
-            One stick, rolled by hand in Kurundugaha — refined into a full
-            range of grades, cuts and extracts for the world.
+            Hand-rolled in our cultivated lands—refined for the world. Explore our full
+            range of premium cinnamon quills, cuts, and extracts.
           </p>
         </div>
       )}
