@@ -57,21 +57,49 @@ export default function CeylonCinnamonPage() {
             From H1 to Alba.
           </h2>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-cocoa/10 bg-cocoa/10 sm:grid-cols-2">
-            {stickGrades.map((grade) => (
-              <div key={grade.id} className="bg-white p-8">
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="text-editorial text-xl text-cocoa">{grade.name}</h3>
+          <section className="overflow-hidden bg-velvet py-20 sm:py-28">
+        <div className="container-edit">
+          <span className="text-eyebrow text-cinnamon">Stick Grades</span>
+          <h2 className="text-display mt-4 max-w-xl text-4xl text-cocoa sm:text-5xl">
+            From H1 to Alba.
+          </h2>
+          <p className="text-editorial mt-4 text-sm text-cocoa/50 sm:hidden">
+            Swipe to explore every grade →
+          </p>
+
+          <div className="relative mt-10 overflow-hidden sm:mt-12">
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-velvet to-transparent sm:w-16" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-velvet to-transparent sm:w-16" />
+
+            <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-6 [&::-webkit-scrollbar]:hidden">
+              {stickGrades.map((grade, i) => (
+                <div
+                  key={grade.id}
+                  className="flex w-[76vw] shrink-0 snap-center flex-col rounded-2xl border border-cocoa/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cocoa/10 sm:w-72 sm:p-7"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    {grade.grade && (
+                      <span className="text-eyebrow text-cinnamon">{grade.grade}</span>
+                    )}
+                    <span className="text-eyebrow shrink-0 text-cocoa/25">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="text-editorial mt-2 text-xl text-cocoa">{grade.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-cocoa/60">
+                    {grade.description}
+                  </p>
                   {grade.specifications?.[0] && (
-                    <span className="text-eyebrow whitespace-nowrap text-cinnamon">
+                    <span className="text-eyebrow mt-4 w-fit rounded-full border border-cocoa/15 px-3 py-1.5 text-[10px] text-cocoa/70">
                       {grade.specifications[0]}
                     </span>
                   )}
                 </div>
-                <p className="mt-3 text-sm text-cocoa/60">{grade.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
         </div>
       </section>
 
