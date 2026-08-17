@@ -55,9 +55,9 @@ export default function OurStoryPage() {
   <p className="text-editorial mt-4 text-2xl leading-relaxed text-cocoa sm:text-3xl">
     {company.registration}
   </p>
-  <div className="mt-6 flex flex-wrap items-center gap-10">
+  <div className="mt-6 flex flex-wrap items-center gap-4 sm:gap-8">
   {badges.map((badge) => (
-    <div key={badge.id} className="relative h-24 w-52 sm:h-28 sm:w-60">
+    <div key={badge.id} className="relative h-16 w-32 sm:h-24 sm:w-52 lg:h-28 lg:w-60">
       <Image src={badge.src} alt={badge.alt} fill className="object-contain object-left" />
     </div>
   ))}
