@@ -1,5 +1,6 @@
 import { CinnamonScrollHero } from "@/components/hero/CinnamonScrollHero";
 import { RangeCardStack } from "@/components/products/RangeCardStack";
+import { BadgeCloud } from "@/components/story/BadgeCloud";
 import { ScrollStatement } from "@/components/animations/ScrollStatement";
 import { CinnamonJourney } from "@/components/cinnamon/CinnamonJourney";
 import { StoryTeaser } from "@/components/story/StoryTeaser";
@@ -16,24 +17,27 @@ export default function Home() {
           section and no gap. */}
       <CinnamonScrollHero />
 
-      {/* 2. Featured product range — interactive card stack */}
+      {/* 2. Certification badges — sits just above the Range section */}
+      <BadgeCloud />
+
+      {/* 3. Featured product range — interactive card stack */}
       <RangeCardStack />
 
-      {/* 3. Cultivate / Harvest / Process / Craft / Refine / Export */}
+      {/* 4. Cultivate / Harvest / Process / Craft / Refine / Export */}
       <ScrollStatement />
 
-      {/* 4. Cinnamon journey */}
+      {/* 5. Cinnamon journey */}
       <CinnamonJourney />
 
-      {/* 5. Ceylon cinnamon story */}
+      {/* 6. Ceylon cinnamon story */}
       <StoryTeaser />
 
-      {/* 6. Quality / global reach */}
+      {/* 7. Quality / global reach */}
       <QualityReach />
 
       <Testimonials />
 
-      {/* 7. Request a quote */}
+      {/* 8. Request a quote */}
       <QuoteCTA />
     </>
   );

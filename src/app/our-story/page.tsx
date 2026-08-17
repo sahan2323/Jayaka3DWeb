@@ -4,6 +4,7 @@ import { StoryTimeline } from "@/components/story/StoryTimeline";
 import { QuoteCTA } from "@/components/story/QuoteCTA";
 import Image from "next/image";
 import { Eye, Compass } from "lucide-react";
+import { badges } from "@/data/badges";
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -50,11 +51,18 @@ export default function OurStoryPage() {
             </p>
           </div>
           <div>
-            <span className="text-eyebrow text-cinnamon">Registration</span>
-            <p className="text-editorial mt-4 text-2xl leading-relaxed text-cocoa sm:text-3xl">
-              {company.registration}
-            </p>
-          </div>
+  <span className="text-eyebrow text-cinnamon">Registration</span>
+  <p className="text-editorial mt-4 text-2xl leading-relaxed text-cocoa sm:text-3xl">
+    {company.registration}
+  </p>
+  <div className="mt-6 flex flex-wrap items-center gap-10">
+  {badges.map((badge) => (
+    <div key={badge.id} className="relative h-24 w-52 sm:h-28 sm:w-60">
+      <Image src={badge.src} alt={badge.alt} fill className="object-contain object-left" />
+    </div>
+  ))}
+</div>
+</div>
         </div>
       </section>
 
