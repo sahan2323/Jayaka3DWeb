@@ -29,7 +29,7 @@ export function CinnamonJourneyMobile() {
 
       <div className="relative z-10 text-center">
         <span className="text-eyebrow text-cinnamon">The Cinnamon Journey</span>
-        <h2 className="text-display mt-3 text-4xl text-cocoa">Sri Lanka to the Worl</h2>
+        <h2 className="text-display mt-3 text-4xl text-cocoa">Sri Lanka to the World</h2>
       </div>
 
       <ul className="relative z-10 mt-14 flex flex-col">
