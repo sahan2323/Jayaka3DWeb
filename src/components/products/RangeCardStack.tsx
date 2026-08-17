@@ -108,10 +108,6 @@ export function RangeCardStack() {
         <h2 className="text-display mt-4 text-4xl text-cocoa sm:text-6xl">
           A Catalogue of Ceylon Cinnamon
         </h2>
-        <p className="text-editorial mx-auto mt-5 max-w-xl text-base text-cocoa/70 sm:text-lg">
-          Hand-rolled in our cultivated lands—refined for the world. Explore our
-          full range of premium cinnamon quills, cuts, and extracts.
-        </p>
         <p className="text-editorial mx-auto mt-3 max-w-xl text-sm text-cocoa/60 sm:text-base">
           From Alba, the finest grade grown, to bark oil distilled on our own
           estate — every product is graded, cut and packed to export. Tap or
