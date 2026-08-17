@@ -18,12 +18,12 @@ export default function OurStoryPage() {
   <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
     <div className="absolute inset-0 rounded-full bg-cinnamon/15 blur-3xl" />
     <Image
-      src="/images/page-heroes/our-story.png"
+      src="/logo/jayakalogo.png"
       alt=""
       fill
       priority
       sizes="100vw"
-      className="object-contain object-[77%_center] opacity-90"
+      className="object-contain object-[83%_center] opacity-90"
     />
     <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-velvet" />
   </div>
