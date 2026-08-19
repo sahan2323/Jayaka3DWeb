@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { quoteFormSchema, type QuoteFormValues } from "@/lib/validations";
 import { categories } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -22,28 +23,46 @@ export function QuoteForm() {
   const productOptions = categories.filter((c) => c.id !== "all");
 
   const onSubmit = async (values: QuoteFormValues) => {
-    // Wire this up to your inquiry endpoint / CRM / email service.
-    // Left as a simulated request so the form is fully functional out
-    // of the box without depending on backend infrastructure.
-    await new Promise((resolve) => setTimeout(resolve, 900));
-    console.log("Quote request", values);
-    setSubmitted(true);
-    reset();
+    setServerError(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to submit inquiry.");
+      }
+
+      setSubmitted(true);
+      reset();
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setServerError(errorMessage);
+    }
   };
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-3xl border border-cocoa/10 bg-white px-8 py-16 text-center">
+      <div className="flex flex-col items-center gap-4 rounded-3xl border border-cocoa/10 bg-white px-8 py-16 text-center shadow-sm">
         <CheckCircle2 className="text-cinnamon" size={40} />
-        <h3 className="text-editorial text-2xl text-cocoa">Inquiry sent.</h3>
+        <h3 className="text-editorial text-2xl text-cocoa">Inquiry sent successfully!</h3>
         <p className="max-w-sm text-cocoa/60">
-          Thank you — our team will get back to you within one business day
-          with pricing and availability.
+          Thank you — your inquiry has been stored. Our team will get back to you within one business day with pricing and availability.
         </p>
         <button
           type="button"
-          onClick={() => setSubmitted(false)}
-          className="text-eyebrow mt-2 text-cinnamon underline underline-offset-4"
+          onClick={() => {
+            setSubmitted(false);
+            setServerError(null);
+          }}
+          className="text-eyebrow mt-2 text-cinnamon underline underline-offset-4 hover:opacity-80"
         >
           Send another inquiry
         </button>
@@ -53,6 +72,16 @@ export function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-6 sm:grid-cols-2">
+      {serverError && (
+        <div className="col-span-full flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-800">
+          <AlertCircle className="mt-0.5 shrink-0 text-red-600" size={20} />
+          <div className="text-sm">
+            <p className="font-semibold">Submission Error</p>
+            <p className="mt-0.5 text-red-700">{serverError}</p>
+          </div>
+        </div>
+      )}
+
       <Field label="Name" error={errors.name?.message}>
         <input
           type="text"
@@ -122,9 +151,9 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="text-eyebrow col-span-full mt-2 w-full rounded-full bg-cinnamon px-8 py-4 text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-fit"
+        className="text-eyebrow col-span-full mt-2 w-full rounded-full bg-cinnamon px-8 py-4 text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-fit cursor-pointer"
       >
-        {isSubmitting ? "Sending…" : "Send Inquiry"}
+        {isSubmitting ? "Sending to Database…" : "Send Inquiry"}
       </button>
     </form>
   );
