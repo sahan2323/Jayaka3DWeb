@@ -34,7 +34,7 @@ export default function CeylonCinnamonPage() {
       Ceylon Cinnamon
     </span>
     <h1 className="text-display mt-4 max-w-3xl text-5xl text-cocoa [text-shadow:0_2px_28px_rgba(248,246,242,0.9),0_1px_3px_rgba(248,246,242,0.7)] sm:text-7xl">
-      The true cinnamon of Sri Lanka
+      The true cinnamon of Sri Lanka.
     </h1>
     <p className="text-editorial mt-8 max-w-2xl text-cocoa/60">
   Indigenous to Sri Lanka, true Ceylon cinnamon (Cinnamomum verum) carries
