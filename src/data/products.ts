@@ -8,7 +8,8 @@ export type ProductCategory =
   | "powder"
   | "quillings"
   | "chips"
-  | "leaves";
+  | "leaves"
+  | "spices";
 
 export interface Product {
   id: string;
@@ -30,6 +31,7 @@ export const categoryLabels: Record<ProductCategory, string> = {
   quillings: "Quillings",
   chips: "Chips",
   leaves: "Leaves",
+  spices: "Spices",
 };
 
 export const products: Product[] = [
@@ -186,6 +188,58 @@ export const products: Product[] = [
       "Dried leaves harvested from the cinnamon tree, prepared using the same careful, natural processing standards applied across our estate.",
     image: "/images/products/dried-leaves-new.jpg",
   },
+  {
+    id: "cloves",
+    name: "Ceylon Cloves",
+    category: "spices",
+    categoryLabel: "Spices",
+    shortDescription: "Aromatic dried flower buds, rich in eugenol.",
+    description:
+      "Hand-harvested dried flower buds of the clove tree, sourced from Sri Lanka. Prized for their intense, warming aroma and high eugenol content, our cloves are used in cooking, baking, and traditional medicine worldwide.",
+    image: "/images/products/cloves.jpg",
+    featured: true,
+  },
+  {
+    id: "nutmeg",
+    name: "Ceylon Nutmeg",
+    category: "spices",
+    categoryLabel: "Spices",
+    shortDescription: "Whole nutmeg seeds, warm and deeply aromatic.",
+    description:
+      "Whole dried seeds of Myristica fragrans, harvested from Sri Lankan nutmeg trees. Our nutmeg delivers a warm, sweet-spicy flavor ideal for baking, beverages, and savory dishes — and is highly valued in the pharmaceutical and cosmetic industries.",
+    image: "/images/products/nutmeg.jpg",
+  },
+  {
+    id: "goraka",
+    name: "Goraka (Gamboge)",
+    category: "spices",
+    categoryLabel: "Spices",
+    shortDescription: "Sun-dried souring agent, a staple of Sri Lankan cuisine.",
+    description:
+      "Naturally dried segments of Garcinia cambogia, known locally as Goraka. A traditional souring agent used extensively in Sri Lankan and South Asian cooking, particularly in fish and meat dishes. Also valued for its hydroxycitric acid (HCA) content in wellness applications.",
+    image: "/images/products/goraka.jpg",
+  },
+  {
+    id: "black-pepper",
+    name: "Ceylon Black Pepper",
+    category: "spices",
+    categoryLabel: "Spices",
+    shortDescription: "Bold, pungent peppercorns from Sri Lankan highlands.",
+    description:
+      "Sun-dried whole peppercorns of Piper nigrum, cultivated in the highlands of Sri Lanka. Known for their sharp, pungent heat and complex flavor profile, our black pepper is a premium export-grade spice suited to fine food production and direct retail.",
+    image: "/images/products/black-pepper.jpg",
+    featured: true,
+  },
+  {
+    id: "mace",
+    name: "Ceylon Mace",
+    category: "spices",
+    categoryLabel: "Spices",
+    shortDescription: "Vibrant red lacy aril from the nutmeg fruit.",
+    description:
+      "The vivid red aril that surrounds the nutmeg seed, carefully dried to preserve its delicate flavor and brilliant colour. Mace carries a subtler, more refined taste than nutmeg — used in spice blends, sauces, pickling, and perfumery.",
+    image: "/images/products/mace.jpg",
+  },
 ];
 
 export const featuredProducts = products.filter((p) => p.featured);
@@ -198,4 +252,5 @@ export const categories: { id: "all" | ProductCategory; label: string }[] = [
   { id: "quillings", label: "Quillings" },
   { id: "chips", label: "Chips" },
   { id: "leaves", label: "Leaves" },
+  { id: "spices", label: "Spices" },
 ];
