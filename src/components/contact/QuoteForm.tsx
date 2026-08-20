@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -24,6 +25,7 @@ export function QuoteForm() {
 
   const onSubmit = async (values: QuoteFormValues) => {
     setServerError(null);
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -43,7 +45,10 @@ export function QuoteForm() {
       reset();
     } catch (err: unknown) {
       const errorMessage =
-        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again.";
+
       setServerError(errorMessage);
     }
   };
@@ -52,10 +57,16 @@ export function QuoteForm() {
     return (
       <div className="flex flex-col items-center gap-4 rounded-3xl border border-cocoa/10 bg-white px-8 py-16 text-center shadow-sm">
         <CheckCircle2 className="text-cinnamon" size={40} />
-        <h3 className="text-editorial text-2xl text-cocoa">Inquiry sent successfully!</h3>
+
+        <h3 className="text-editorial text-2xl text-cocoa">
+          Inquiry sent successfully!
+        </h3>
+
         <p className="max-w-sm text-cocoa/60">
-          Thank you — your inquiry has been stored. Our team will get back to you within one business day with pricing and availability.
+          Thank you — your inquiry has been stored. Our team will get back to
+          you within one business day with pricing and availability.
         </p>
+
         <button
           type="button"
           onClick={() => {
@@ -71,10 +82,18 @@ export function QuoteForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-6 sm:grid-cols-2">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+      className="grid gap-6 sm:grid-cols-2"
+    >
       {serverError && (
         <div className="col-span-full flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-800">
-          <AlertCircle className="mt-0.5 shrink-0 text-red-600" size={20} />
+          <AlertCircle
+            className="mt-0.5 shrink-0 text-red-600"
+            size={20}
+          />
+
           <div className="text-sm">
             <p className="font-semibold">Submission Error</p>
             <p className="mt-0.5 text-red-700">{serverError}</p>
@@ -122,7 +141,11 @@ export function QuoteForm() {
         />
       </Field>
 
-      <Field label="Product Interest" error={errors.productInterest?.message} full>
+      <Field
+        label="Product Interest"
+        error={errors.productInterest?.message}
+        full
+      >
         <select
           {...register("productInterest")}
           defaultValue=""
@@ -131,6 +154,7 @@ export function QuoteForm() {
           <option value="" disabled>
             Select a product category
           </option>
+
           {productOptions.map((c) => (
             <option key={c.id} value={c.label}>
               {c.label}
@@ -151,7 +175,7 @@ export function QuoteForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="text-eyebrow col-span-full mt-2 w-full rounded-full bg-cinnamon px-8 py-4 text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-fit cursor-pointer"
+        className="text-eyebrow col-span-full mt-2 w-full cursor-pointer rounded-full bg-cinnamon px-8 py-4 text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-fit"
       >
         {isSubmitting ? "Sending to Database…" : "Send Inquiry"}
       </button>
@@ -173,7 +197,9 @@ function Field({
   return (
     <div className={cn("flex flex-col gap-2", full && "sm:col-span-2")}>
       <label className="text-eyebrow text-cocoa/60">{label}</label>
+
       {children}
+
       {error && <span className="text-sm text-red-600">{error}</span>}
     </div>
   );

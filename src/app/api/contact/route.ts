@@ -7,8 +7,8 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    // 1. Validate payload with schema
     const validationResult = quoteFormSchema.safeParse(body);
+
     if (!validationResult.success) {
       return NextResponse.json(
         {
@@ -35,10 +35,10 @@ export async function POST(req: Request) {
       );
     }
 
-    // 2. Connect to MongoDB Atlas
+    // Connect to MongoDB Atlas
     await connectDB();
 
-    // 3. Save Inquiry record to database
+    // Save Inquiry record to database
     const newInquiry = await Inquiry.create({
       name,
       company,
