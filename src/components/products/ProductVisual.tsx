@@ -9,6 +9,7 @@ const categoryTreatment: Record<ProductCategory, string> = {
   quillings: "linear-gradient(155deg, #e5c39a 0%, #b3671f 55%, #4a2c15 100%)",
   chips: "linear-gradient(155deg, #e2b98a 0%, #a85c22 55%, #43290f 100%)",
   leaves: "linear-gradient(155deg, #cbb37a 0%, #7c8a3d 55%, #37421c 100%)",
+  spices: "linear-gradient(155deg, #e0b676 0%, #a8461f 50%, #4a1f0f 100%)",
 };
 
 export function ProductVisual({
@@ -52,4 +53,3 @@ export function ProductVisual({
     </div>
   );
 }
-
