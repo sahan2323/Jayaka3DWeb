@@ -100,7 +100,7 @@ export function ProductCatalogue() {
                     href="/contact"
                     className="text-eyebrow group/link mt-6 inline-flex items-center gap-1.5 text-cocoa"
                   >
-                    Request a Quote.
+                    Request a Quote
                     <ArrowUpRight
                       size={14}
                       className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
