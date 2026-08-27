@@ -9,12 +9,14 @@ import { useEffect, useState } from "react";
  * visual for a simpler stacked mobile layout.
  */
 export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(() =>
-    typeof window === "undefined" ? false : window.matchMedia(query).matches
-  );
+  // Always initialize to false (matching SSR) to prevent hydration mismatches.
+  // The true value will be set immediately after the first mount in useEffect.
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     const mql = window.matchMedia(query);
+    setMatches(mql.matches); // Set initial value on client
+    
     const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
     mql.addEventListener("change", listener);
     return () => mql.removeEventListener("change", listener);
