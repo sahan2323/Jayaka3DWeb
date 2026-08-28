@@ -90,7 +90,37 @@ ${message}
       };
 
       await transporter.sendMail(mailOptions);
-      console.log("Email notification sent successfully");
+      console.log("Admin email notification sent successfully");
+
+      // Send confirmation email to the user
+      const userMailOptions = {
+        from: process.env.SMTP_FROM || `"Jayaka Cinnamon Website" <${process.env.SMTP_USER}>`,
+        to: email,
+        subject: `Thank you for your inquiry, ${name}! - Jayaka Cinnamon`,
+        text: `
+Hi ${name},
+
+Thank you for reaching out to Jayaka Cinnamon! We have successfully received your inquiry regarding ${productInterest || 'our products'}.
+
+Our team will review your message and get back to you shortly.
+
+Best regards,
+The Jayaka Cinnamon Team
+www.jayakacinnamon.lk
+        `,
+        html: `
+<p>Hi ${name},</p>
+<p>Thank you for reaching out to Jayaka Cinnamon! We have successfully received your inquiry regarding <strong>${productInterest || 'our products'}</strong>.</p>
+<p>Our team will review your message and get back to you shortly.</p>
+<br>
+<p>Best regards,<br>
+<strong>The Jayaka Cinnamon Team</strong><br>
+<a href="https://www.jayakacinnamon.lk">www.jayakacinnamon.lk</a></p>
+        `,
+      };
+
+      await transporter.sendMail(userMailOptions);
+      console.log("User confirmation email sent successfully");
     } catch (emailError) {
       console.error("Error sending email notification:", emailError);
       // We don't fail the whole request if email fails, as the DB save succeeded
