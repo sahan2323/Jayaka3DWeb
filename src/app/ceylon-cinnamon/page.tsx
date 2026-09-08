@@ -24,7 +24,7 @@ export default function CeylonCinnamonPage() {
       fill
       priority
       sizes="100vw"
-      className="object-contain object-[80%_center] opacity-90"
+      className="object-contain object-[81%_center] opacity-90"
     />
     <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-velvet" />
   </div>
